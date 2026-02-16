@@ -1,5 +1,5 @@
 import { test } from '../support'
-import { obterDataAtual } from '../support/helpers/obterDataAtual';
+import { obterDataAtual } from '../support/helpers/obterDataAtual'
 import data from '../support/fixtures/viagem.json'
 
 test.describe('Agendamento de Viagens', () => {
@@ -19,7 +19,7 @@ test.describe('Agendamento de Viagens', () => {
       viagem.telefone, dataAtual, viagem.observacoes
     )
     await page.agendarViagemPage.submeterFormulario()
-   
+
     const mensagem = 'agendada com sucesso! Valor: R$ 1.290,75'
     await page.agendarViagemPage.verificarMensagemDeSucesso(mensagem)
   })

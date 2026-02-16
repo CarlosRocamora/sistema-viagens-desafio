@@ -1,4 +1,6 @@
 import { expect, Page } from "@playwright/test"
+import { obterDataAtual } from '../helpers/obterDataAtual'
+import data from '../fixtures/viagem.json'
 
 export class AgendarViagemPage {
 
@@ -10,8 +12,8 @@ export class AgendarViagemPage {
 
     async visitar() {
         await this.page.goto('/agendar')
-        const agendarNovaViagemForm = this.page.getByRole('heading', { name: 'Agendar Nova Viagem' })
-        await expect(agendarNovaViagemForm).toBeVisible()
+        const agendarNovaViagemTitle = this.page.getByRole('heading', { name: 'Agendar Nova Viagem' })
+        await expect(agendarNovaViagemTitle).toBeVisible()
     }
 
     async preencherFormulario(origem: string, destino: string, distancia: string,
@@ -32,13 +34,38 @@ export class AgendarViagemPage {
         await this.page.getByRole('button', { name: 'Agendar Viagem' }).click()
     }
 
+    async preencherESubmeterFormulario() {
+        const viagem = data.viagemValida
+        const dataAtual = obterDataAtual()
+
+        await this.preencherFormulario(viagem.origem, viagem.destino, viagem.distancia, viagem.numeroDePassageiros, viagem.tipo, viagem.passageiro,
+            viagem.telefone, dataAtual, viagem.observacoes)
+        await this.submeterFormulario()
+    }
+
     async verificarMensagemDeSucesso(mensagem: string) {
         const alert = this.page.locator('.alert-success')
         await expect(alert).toContainText(mensagem)
-    } 
+    }
 
     async verificarMensagemDeErro(mensagem: string) {
         const alert = this.page.locator('.alert-error')
         await expect(alert).toContainText(mensagem)
+    }
+
+    async obterIdDaMensagemDeSucesso(): Promise<string> {
+        const alerta = this.page.locator('.alert-success')
+
+        await expect(alerta).toBeVisible()
+
+        const mensagem = await alerta.textContent()
+
+        const match = mensagem?.match(/VIA-\d{3}/)
+
+        if (!match) {
+            throw new Error(`ID não encontrado na mensagem: ${mensagem}`)
+        }
+
+        return match[0]
     }
 }
