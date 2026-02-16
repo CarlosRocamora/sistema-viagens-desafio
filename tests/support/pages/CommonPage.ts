@@ -13,4 +13,9 @@ export class CommonPage {
         const menuTitle = this.page.getByRole('heading', { name: menu})
         await expect(menuTitle).toBeVisible()
     }
+
+    async verificarMensagemDeSucesso(mensagem: string) {
+        const alert = this.page.locator('.alert-success')
+        await expect(alert).toContainText(mensagem)
+    }
 }

@@ -8,7 +8,7 @@ test.describe('Agendamento de Viagens', () => {
   })
 
   /***
-   * Os 3 próximos testes não estão passando porque a formatação da moeda não está no formato BRL
+   * Os 3 próximos testes não estão passando porque a formatação da moeda não está no formato BR
    */
   test('Deve agendar nova viagem com dados válidos (Standard)', async ({ page }) => {
     const dataAtual = obterDataAtual()
@@ -21,7 +21,7 @@ test.describe('Agendamento de Viagens', () => {
     await page.agendarViagemPage.submeterFormulario()
 
     const mensagem = 'agendada com sucesso! Valor: R$ 1.290,75'
-    await page.agendarViagemPage.verificarMensagemDeSucesso(mensagem)
+    await page.commonPage.verificarMensagemDeSucesso(mensagem)
   })
 
   test('Deve agendar nova viagem do tipo executivo', async ({ page }) => {
@@ -35,7 +35,7 @@ test.describe('Agendamento de Viagens', () => {
     await page.agendarViagemPage.submeterFormulario()
 
     const mensagem = 'agendada com sucesso! Valor: R$ 2.751,00'
-    await page.agendarViagemPage.verificarMensagemDeSucesso(mensagem)
+    await page.commonPage.verificarMensagemDeSucesso(mensagem)
   })
 
   test('Deve agendar nova viagem do tipo compartilhado', async ({ page }) => {
@@ -49,7 +49,7 @@ test.describe('Agendamento de Viagens', () => {
     await page.agendarViagemPage.submeterFormulario()
 
     const mensagem = 'agendada com sucesso! Valor: R$ 402,00'
-    await page.agendarViagemPage.verificarMensagemDeSucesso(mensagem)
+    await page.commonPage.verificarMensagemDeSucesso(mensagem)
   })
 
   test('Deve validar campos obrigatórios', async ({ page }) => {
@@ -87,6 +87,6 @@ test.describe('Agendamento de Viagens', () => {
     await page.agendarViagemPage.submeterFormulario()
 
     const mensagem = 'agendada com sucesso! Valor: R$ 1.353,60'
-    await page.agendarViagemPage.verificarMensagemDeSucesso(mensagem)
+    await page.commonPage.verificarMensagemDeSucesso(mensagem)
   })
 })

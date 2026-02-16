@@ -61,4 +61,14 @@ export class ConsultarViagensPage {
         }
     }
 
+    async verificarTextoECorStatus(id: string, status: string, badge: string, backgroundRgb: string, colorRgb ) {
+        const row = this.page.locator('table tbody tr', { hasText: id})
+        await expect(row).toContainText(status)
+
+        const badgeStatus = row.locator(`.badge-${badge}`)
+        await expect(badgeStatus).toBeVisible()
+        await expect(badgeStatus).toHaveCSS('background-color', backgroundRgb)
+        await expect(badgeStatus).toHaveCSS('color', colorRgb)
+    }
+
 }

@@ -43,11 +43,6 @@ export class AgendarViagemPage {
         await this.submeterFormulario()
     }
 
-    async verificarMensagemDeSucesso(mensagem: string) {
-        const alert = this.page.locator('.alert-success')
-        await expect(alert).toContainText(mensagem)
-    }
-
     async verificarMensagemDeErro(mensagem: string) {
         const alert = this.page.locator('.alert-error')
         await expect(alert).toContainText(mensagem)
