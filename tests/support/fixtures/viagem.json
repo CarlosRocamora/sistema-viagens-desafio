@@ -1,0 +1,52 @@
+{
+    "viagemValida": {
+        "origem": "Terminal Berrini - São Paulo, SP",
+        "destino": "Escritório Centro - Rio de Janeiro, RJ",
+        "distancia": "430",
+        "numeroDePassageiros": "15",
+        "tipo": "Standard",
+        "passageiro": "João Silva",
+        "telefone": "(11) 98765-4321",
+        "observacoes": "Teste"
+    },
+    "executivo": {
+        "origem": "Terminal dos Testes",
+        "destino": "Rua dos Testes",
+        "distancia": "500",
+        "numeroDePassageiros": "20",
+        "tipo": "Executivo",
+        "passageiro": "Lucas",
+        "telefone": "11985824321",
+        "observacoes": "Testando o tipo executivo"
+    },
+    "compartilhado": {
+        "origem": "Origem dos teste",
+        "destino": "Destino dos Testes",
+        "distancia": "200",
+        "numeroDePassageiros": "40",
+        "tipo": "Compartilhado",
+        "passageiro": "Carlos",
+        "telefone": "11 97842-4321",
+        "observacoes": "Testando o tipo compartilhado"
+    },
+    "distanciaNegativa": {
+        "origem": "Terminal Berrini - São Paulo, SP",
+        "destino": "Escritório Centro - Rio de Janeiro, RJ",
+        "distancia": "-430",
+        "numeroDePassageiros": "15",
+        "tipo": "Standard",
+        "passageiro": "João Silva",
+        "telefone": "(11) 98765-4321",
+        "observacoes": "Teste"
+    },
+    "desconto": {
+        "origem": "Terminal Berrini - São Paulo, SP",
+        "destino": "Escritório Centro - Rio de Janeiro, RJ",
+        "distancia": "501",
+        "numeroDePassageiros": "20",
+        "tipo": "Standard",
+        "passageiro": "João Silva",
+        "telefone": "(11) 98765-4321",
+        "observacoes": "Teste"
+    } 
+}
